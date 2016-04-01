@@ -1,0 +1,33 @@
+.THIS.typeAheadContainer
+{
+	width:25%;
+	
+}
+
+.THIS .invisible
+{
+	visibility: none;
+}
+
+.THIS .optionsMenu
+{
+	border:1px black solid;
+	border-radius: 5px;
+}
+
+
+.THIS .menuItem
+{
+	width:100%;
+	background-color: ffeeee;
+}
+
+.THIS .menuOption, .THIS .menuItem
+{
+	font-size: 1em;
+}
+
+.THIS .menuOption:hover
+{
+	background-color: #cccccc;
+}

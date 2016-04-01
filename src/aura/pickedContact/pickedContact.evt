@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fires an event and sends Contact object when a User has selected a contact.">
+    <aura:attribute name="contactObject" type="Contact"/>
+</aura:event>

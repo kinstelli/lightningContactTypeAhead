@@ -1,0 +1,11 @@
+aux
+debug
+config
+node_modules
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+package.json
+nightwatch.json
+gulpfile.js
+*~
