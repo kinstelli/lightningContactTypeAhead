@@ -3,7 +3,7 @@ This is a-very-much-in-progress attempt to create a ui:inputText typeahead compo
 
 Proof-of-concept here, but hopefully will do the following:
 
-1. Definitively find out if anyone else is already done this ;)
+1. Definitively find out if anyone else had already done / is doing this ;)
 
 and then...
 
