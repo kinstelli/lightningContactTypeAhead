@@ -3,7 +3,7 @@
 	{
 		objChosen = event.srcElement.value;
 		//set textfield to picked value
-		component.find("typeAheadBox").set("v.value", objChosen.FirstName + ' ' + objChosen.LastName);
+		component.find("typeAheadBox").set("v.value", objChosen.Name );
 		component.set("v.chosenContact", objChosen);
           
         var messageEvent = component.getEvent("pickedContact");
@@ -18,16 +18,24 @@
         var lookupParams = {
         					'valueToMatch': textToMatch
         				    };
-
         doGetValuesFromServer.setParams(lookupParams);
-        
         doGetValuesFromServer.setCallback(this, 
         	function setFoundValuesToOptionsList(resultSet)
             {
-            	//console.log("Returned from Apex with this value:");
-            	//console.log(resultSet.getReturnValue());
-                component.set("v.optionsList", resultSet.getReturnValue());
-            	this.showMenu(component);
+                var contactResults = resultSet.getReturnValue();
+
+            	console.log("Returned from Apex with this value:");
+            	console.log(contactResults);
+                console.log("lenght of results: " + contactResults.length);
+                component.set("v.optionsList", contactResults );
+            	if(contactResults.length >= 1)
+                {
+                    this.showMenu(component);
+                }else
+                {
+                     this.hideMenu(component);
+                }
+
             });
        $A.enqueueAction(doGetValuesFromServer);	
 	}
@@ -38,6 +46,7 @@
 
 },showMenu: function(component)
 {
+    console.log("showign menu.");
     $A.util.removeClass(component.find("optionsMenu"), 'invisible');
 }
 

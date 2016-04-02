@@ -9,3 +9,4 @@ and then...
 
 2. Extend ui:inputText, in order to inherit its classes and events
 3. Configure for searching on various fields and sObjects, instead of hardcoding to Contact.Name and Contact
+4. Deal with issues related to searching partial text on 'Name' field, since record may include a last name.

@@ -14,7 +14,7 @@
 					
 		<div aura:id="optionsMenu" class="optionsMenu invisible" >
 		<aura:iteration var="contactOption" items="{! v.optionsList }">
-			<div class="{! v.menuItemClass + ' menuItem' }" value="{! contactOption }" onclick="{! c.handleClickedOption }">{! contactOption.FirstName }&nbsp;{! contactOption.LastName }</div>
+			<div class="{! v.menuItemClass + ' menuItem' }" value="{! contactOption }" onclick="{! c.handleClickedOption }">{! contactOption.Name }</div>
 		</aura:iteration>
 		</div>
 	</div>

@@ -6,9 +6,11 @@ public with sharing class ContactTypeaheadController
     {
         List<Contact> newList = new List<sObject>();
 
-        String dynamicQuery = 'SELECT FirstName, Lastname, Name, ID, Department, Email FROM Contact WHERE '
+        //SELECT FirstName, Lastname, Name, ID, Department, Email FROM Contact WHERE
+        String dynamicQuery = 'SELECT PrimaryFirstName__c, PrimaryLastName__c, Name FROM Contact WHERE '
                             + ' (Name LIKE \'%' + String.escapeSingleQuotes(valueToMatch) + '%\' ) '
-                            +' ORDER BY FirstName, LastName LIMIT 100 ';
+                            + ' AND IsActiveEmployee__c = true '
+                            + ' ORDER BY PrimaryFirstName__c, PrimaryLastName__c LIMIT 100 ';
         try
         {
             newList = Database.Query(dynamicQuery);

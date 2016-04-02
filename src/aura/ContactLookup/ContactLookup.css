@@ -1,7 +1,5 @@
 .THIS.typeAheadContainer
-{
-	width:25%;
-	
+{	
 }
 
 .THIS .invisible
@@ -11,15 +9,27 @@
 
 .THIS .optionsMenu
 {
+	position: absolute;
+	width:96%;
+	left:2%;
+	right:2%;
 	border:1px black solid;
 	border-radius: 5px;
+	background-color: #ffffff;
+	z-index: 2;
 }
 
+.THIS select
+{
+	max-width: 100%;
+}
 
 .THIS .menuItem
 {
 	width:100%;
 	background-color: ffeeee;
+	border-bottom: 1px #cccccc solid;
+	padding: 1%;
 }
 
 .THIS .menuOption, .THIS .menuItem
