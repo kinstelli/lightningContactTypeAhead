@@ -7,8 +7,8 @@ public with sharing class ContactTypeaheadController
         List<Contact> newList = new List<sObject>();
 
         //SELECT FirstName, Lastname, Name, ID, Department, Email FROM Contact WHERE
-        String dynamicQuery = 'SELECT PrimaryFirstName__c, PrimaryLastName__c, Name FROM Contact WHERE '
-                            + ' (Name LIKE \'%' + String.escapeSingleQuotes(valueToMatch) + '%\' ) '
+        String dynamicQuery = 'SELECT PrimaryFirstName__c, PrimaryLastName__c, Name, DirectoryWorkPhone__c, Department, Email, Title, IsFaculty__c, IsFullTimeFaculty__c, IsSeniorSchoolStaff__c, IsSchoolStaff__c, IsActiveContractor__c FROM Contact  '
+                            + ' WHERE (Name LIKE \'%' + String.escapeSingleQuotes(valueToMatch) + '%\' ) '
                             + ' AND IsActiveEmployee__c = true '
                             + ' ORDER BY PrimaryFirstName__c, PrimaryLastName__c LIMIT 100 ';
         try

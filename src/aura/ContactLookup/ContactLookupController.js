@@ -18,5 +18,31 @@
 			console.log("ignoring lookup");
 			helper.hideMenu(component);
 		}
+	},
+	handleClearErrors: function(component, event, helper)
+	{
+		debugger;
+		console.log("Handling clearing of errors: ", event);
+
+		//propagate this down into the contained ui:inputText component?
+		var inputFieldComponent = component.find("typeAheadBox");
+		inputFieldComponent.set("v.errors", null); // Set Error
+	}
+	,handleValidationError: function(component, event, helper)
+	{
+		debugger;
+		console.log("Handling validation error: ", event);
+		//propagate this down into the contained ui:inputText component?
+		var inputFieldComponent = component.find("typeAheadBox");
+		inputFieldComponent.set("v.errors", [{message:"Required"}]); // Set Error
+
+	},handleUnspecifiedError: function(component, event, helper)
+	{
+		debugger;
+		var errors = event.getParam("errors");
+		for (var i = 0; i < errors.length; i++)
+		{
+			console.log("error " + i);
+		}
 	}
 });

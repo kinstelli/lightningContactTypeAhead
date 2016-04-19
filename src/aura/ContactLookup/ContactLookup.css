@@ -41,3 +41,9 @@
 {
 	background-color: #cccccc;
 }
+
+.THIS input.has-error
+{
+	border-color: rgb(194, 57, 52);
+    box-shadow: rgb(194, 57, 52) 0 0 0 1px inset;
+}

@@ -1,4 +1,4 @@
-<aura:component controller="ContactTypeaheadController">
+<aura:component controller="ContactTypeaheadController" extends="ui:inputText" >
 
 	<aura:attribute name="optionsList" type="String[]" default="" />
 	<aura:attribute name="chosenContact" type="Contact" default="" />
@@ -7,15 +7,16 @@
     <aura:attribute name="inputClass" type="String" default="" />
     <aura:attribute name="menuClass" type="String" default="" />
     <aura:attribute name="menuItemClass" type="String" default="" />
-
+    <aura:attribute name="inputTextValue" type="String" default="" />
+    <aura:attribute name="required" type="Boolean" default="false" />
 
 	<div class="typeAheadContainer">
-		<ui:inputText aura:id="typeAheadBox" class="{! v.inputClass }" value="" label="" keyup="{!c.handleUpdatedText }" updateOn="keyup" />
-					
+		<ui:inputText aura:id="typeAheadBox" class="{! v.inputClass + ' internalInputClass'}" value="{! v.inputTextValue }" label="" keyup="{!c.handleUpdatedText }" updateOn="keyup" required="{! v.required }" onError="{!c.handleUnspecifiedError}" onClearErrors="{!c.handleClearErrors}"/>			
 		<div aura:id="optionsMenu" class="optionsMenu invisible" >
 		<aura:iteration var="contactOption" items="{! v.optionsList }">
 			<div class="{! v.menuItemClass + ' menuItem' }" value="{! contactOption }" onclick="{! c.handleClickedOption }">{! contactOption.Name }</div>
 		</aura:iteration>
 		</div>
 	</div>
+
 </aura:component>
